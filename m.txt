@@ -1,0 +1,20 @@
+cypress/e2e/1-getting-started/test.cy.ts (1 test)
+└─ first test to be 
+  └─ test it
+
+cypress/e2e/1-getting-started/todo.cy.ts (6 tests)
+└─ example to-do app
+  ├─ displays two todo items by default
+  ├─ can add new todo items
+  ├─ can check off an item as completed
+  └─ with a checked task
+    ├─ can filter for uncompleted tasks
+    ├─ can filter for completed tasks
+    └─ can delete all completed tasks
+
+cypress/e2e/3-news/mani.cy.ts (1 test)
+└─ test lister
+  └─ test it lister
+
+found 3 specs (8 tests)
+
