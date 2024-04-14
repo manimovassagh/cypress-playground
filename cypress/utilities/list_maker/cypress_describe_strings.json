@@ -4,5 +4,9 @@
   ],
   "../../../cypress/e2e/3-news/mani.cy.ts": [
     "test lister"
+  ],
+  "../../../cypress/e2e/5-dd/tt.cy.ts": [
+    "new one for it",
+    "second describe one to check"
   ]
 }

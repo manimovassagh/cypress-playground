@@ -1,23 +1,12 @@
-import * as fs from 'fs';
-import * as path from 'path';
+const fs = require('fs');
+const path = require('path');
 
-interface TestFile {
-  path: string;
-  relativePath: string;
-}
+function listCypressTests(rootDir) {
+  const testFiles = [];
+  const describeTexts = {}; // Use an object to store unique describe texts
+  const itTexts = {}; // Use an object to store unique it texts
 
-interface TestInfo {
-  testFiles: TestFile[];
-  describeTexts: { text: string; count: number }[];
-  itTexts: { text: string; count: number }[];
-}
-
-function listCypressTests(rootDir: string): TestInfo {
-  const testFiles: TestFile[] = [];
-  const describeTexts: { [key: string]: number } = {};
-  const itTexts: { [key: string]: number } = {};
-
-  function walkDirectory(currentDir: string): void {
+  function walkDirectory(currentDir) {
     const files = fs.readdirSync(currentDir);
     for (const file of files) {
       const filePath = path.join(currentDir, file);
@@ -30,39 +19,41 @@ function listCypressTests(rootDir: string): TestInfo {
 
         const testContent = fs.readFileSync(filePath, 'utf-8');
 
+        // Look for describe with any text inside quotes
         const describeMatches = testContent.match(/describe\('([^']+)'/g);
         if (describeMatches) {
           for (const match of describeMatches) {
-            const describeText = match.slice(9, -1).trim();
-            describeTexts[describeText] = (describeTexts[describeText] || 0) + 1; // Increment count
+            // Extract only the text inside quotes, remove leading ', remove first N characters (adjust N as needed)
+            const describeText = match.slice(9, -1).slice(N).trim(); // Start after ', remove first N, trim (adjust N)
+            describeTexts[describeText] = (describeTexts[describeText] || 0) + 1; // Count unique occurrences
           }
         }
 
         const itMatches = testContent.match(/it\('([^']+)'[^]+?(?!(?:\s*cy\.visit\('[^']+'\);)|\s*it\()/gm);
         if (itMatches) {
           for (const match of itMatches) {
-            const itText = match.slice(4, -2);
-            itTexts[itText] = (itTexts[itText] || 0) + 1; // Increment count
+            const itText = match.slice(4, -2); // Extract text between 1st and last character (quotes)
+            itTexts[itText] = (itTexts[itText] || 0) + 1; // Count unique occurrences
           }
         }
       }
     }
   }
 
-  const N = 1;
+  const N = 1; // Number of characters to remove after the leading quote (adjust as needed)
   walkDirectory(path.join(rootDir, 'cypress', 'e2e'));
 
   return {
     testFiles,
-    describeTexts: Object.entries(describeTexts).map(([text, count], index) => ({ text, count: index + 1 })),
-    itTexts: Object.entries(itTexts).map(([text, count], index) => ({ text, count: index + 1 })),
+    describeTexts: Object.entries(describeTexts).map(([text, count]) => ({ text, count })),
+    itTexts: Object.entries(itTexts).map(([text, count]) => ({ text, count })),
   };
 }
 
 const cypressRootDir = process.cwd(); // Use current directory by default
 const testInfo = listCypressTests(cypressRootDir);
 
-console.log('List of SEQT all test files (with relative paths):');
+console.log('List of all SEQT test files (with relative paths):');
 console.log(testInfo.testFiles.map(file => file.relativePath));
 
 console.log('\nList of SEQT describe function texts (with counts):');

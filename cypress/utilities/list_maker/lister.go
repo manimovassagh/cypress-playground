@@ -45,7 +45,7 @@ func List_Maker() {
 	fmt.Println("Cypress test files list saved to:", filePath)
 }
 
-func main() {
+func text_list() {
 	// Define the directory to search
 	directory := "../../../cypress/e2e"
 
@@ -124,7 +124,11 @@ func main() {
 	}
 
 	fmt.Println("Cypress describe function strings saved to:", jsonFilePath)
+}
 
+func main() {
+
+	text_list()
 	fmt.Println("----------------------------------")
 	List_Maker()
 }
