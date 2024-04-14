@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// Define the directory to search
-	directory := "./cypress/e2e"
+	directory := "../../cypress/e2e"
 
 	// Run the command to list Cypress test files
 	cmd := exec.Command("find", directory, "-name", "*.cy.*")
@@ -89,4 +89,7 @@ func main() {
 	}
 
 	fmt.Println("Cypress describe function strings saved to:", jsonFilePath)
+
+
+	fmt.Println("----------------------------------")
 }

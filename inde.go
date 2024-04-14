@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func main() {
+func All_list_maker() {
 	// Define the directory to search
 	directory := "./cypress/e2e"
 

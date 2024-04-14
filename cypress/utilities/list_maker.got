@@ -8,7 +8,7 @@ import (
 
 func main() {
 	// Define the directory to search
-	directory := "./cypress/e2e"
+	directory := "../../cypress/e2e"
 
 	// Run the command to list Cypress test files
 	cmd := exec.Command("find", directory, "-name", "*.cy.*")
@@ -22,7 +22,7 @@ func main() {
 	// Print the list of Cypress test files
 	fmt.Println("Cypress test files:")
 	fmt.Println(string(out))
-
+	
 	// Save the list to a text file
 	filePath := "cypress_test_files.txt"
 	file, err := os.Create(filePath)
