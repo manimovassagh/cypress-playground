@@ -1,0 +1,8 @@
+{
+  "../../../cypress/e2e/1-getting-started/test.cy.ts": [
+    "first test to be "
+  ],
+  "../../../cypress/e2e/3-news/mani.cy.ts": [
+    "test lister"
+  ]
+}

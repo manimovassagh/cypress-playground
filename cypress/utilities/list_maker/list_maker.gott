@@ -6,7 +6,7 @@ import (
 	"os/exec"
 )
 
-func main() {
+func List_Maker() {
 	// Define the directory to search
 	directory := "../../cypress/e2e"
 

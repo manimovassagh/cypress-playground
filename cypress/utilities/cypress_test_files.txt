@@ -1,2 +1,0 @@
-../../cypress/e2e/1-getting-started/test.cy.ts
-../../cypress/e2e/3-news/mani.cy.ts
