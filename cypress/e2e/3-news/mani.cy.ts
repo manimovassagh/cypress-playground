@@ -14,6 +14,5 @@ describe('test lister', () => {
        cy.get("a").click()
        cy.get("a").click()
        cy.get("a").click()
-       cy.get("a").click()
     });
  })
