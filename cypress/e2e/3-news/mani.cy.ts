@@ -7,6 +7,6 @@ describe('test lister', () => {
         
     });
     it('test it lister 3', () => {
-       cy.get("a")
+       cy.get("a").click()
     });
  })
