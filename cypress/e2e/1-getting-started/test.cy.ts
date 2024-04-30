@@ -1,14 +1,12 @@
+import { Dashboard } from "./object";
 
+const dash = new Dashboard();
 
-describe('first test to be ', () => {
+describe("first test to be ", () => {
+  it("test it tttt", {}, () => {
 
+    dash.visitUrl("https://www.youtube.com");
+    cy.go("back");
+  });
 
-  it('test it tttt', () => {
-    cy.visit("google.com")
-    cy.go("back")
-  })
-  it('second one it for that', () => {
-    cy.visit("google.com")
-    cy.go("back")
-  })
-})
+});

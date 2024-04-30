@@ -7,6 +7,6 @@ describe('test lister', () => {
         
     });
     it('test it lister 3', () => {
-        
+       cy.ge
     });
  })
