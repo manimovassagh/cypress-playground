@@ -8,5 +8,10 @@ describe('test lister', () => {
     });
     it('test it lister 3', () => {
        cy.get("a").click()
+       cy.get("a").click()
+       cy.get("a").click()
+       cy.get("a").click()
+       cy.get("a").click()
+       cy.get("a").click()
     });
  })
