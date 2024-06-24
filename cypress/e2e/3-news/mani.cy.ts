@@ -7,3 +7,13 @@ describe('Log JWT Token', () => {
    });
  });
  
+
+ describe('Log JWT Token 22222', () => {
+   it('should log the JWT token', () => {
+     const cypressJwtToken = Cypress.env('CYPRESS_JWT_TOKEN');
+     const jwtToken = Cypress.env('JWT_TOKEN');
+     cy.log(`CYPRESS_JWT_TOKEN: ${cypressJwtToken ? cypressJwtToken.substring(0, 4) + '****' : 'undefined'}`);
+     cy.log(`JWT_TOKEN: ${jwtToken ? jwtToken.substring(0, 4) + '****' : 'undefined'}`);
+   });
+ });
+ 
