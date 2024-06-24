@@ -21,7 +21,8 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run
         env:
-          JWT_TOKEN: ${{ secrets.JWT_TOKEN }}
+          CYPRESS_JWT_TOKEN: ${{ secrets.JWT_TOKEN }}
 
       - name: Log JWT Token
-        run: echo "JWT Token: ${{ secrets.JWT_TOKEN }}"
+        run: |
+          echo "JWT Token: ${{ secrets.JWT_TOKEN }}"

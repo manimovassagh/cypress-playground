@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.14.8",
     "cypress": "^13.7.2",
     "typescript": "^5.4.4"
   }
