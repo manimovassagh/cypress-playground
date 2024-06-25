@@ -4,7 +4,7 @@
    it('should log the JWT token', () => {
       const jwt='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
 
-     const cypressJwtToken = Cypress.env('CYPRESS_JWT_TOKEN');
+     const cypressJwtToken = Cypress.env('CYPRESS_JWT');
      const jwtToken = Cypress.env('JWT_TOKEN');
      const jt2 = jwtToken
      expect(cypressJwtToken).to.be.a('string');
