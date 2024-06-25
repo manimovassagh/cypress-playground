@@ -6,8 +6,7 @@
 
      const cypressJwtToken = Cypress.env('JWT_TOKEN');
  
-console.log(cypressJwtToken)
-
+cy.wrap(jwt).as('jwtToken').should("equal",cypressJwtToken);
 
  });
 
