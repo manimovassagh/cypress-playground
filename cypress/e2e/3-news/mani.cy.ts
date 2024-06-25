@@ -10,6 +10,15 @@
      expect(cypressJwtToken).to.be.a('string');
      expect(jwtToken).to.be.a('string')
      expect(jwtToken).to.equal(jt2);
+
+     const data = {
+      CYPRESS_JWT_TOKEN: cypressJwtToken,
+      JWT_TOKEN: jwtToken
+    };
+
+    cy.writeFile('cypress/fixtures/env.json', data).then(() => {
+      cy.log('Environment variables written to env.json');
+    });
      cy.log(`CYPRESS_JWT_TOKEN: ${cypressJwtToken ? cypressJwtToken.substring(0, 4) + '****' : 'undefined'}`);
      cy.log(`JWT_TOKEN: ${jwtToken ? jwtToken.substring(0, 4) + '****' : 'undefined'}`);
    });
