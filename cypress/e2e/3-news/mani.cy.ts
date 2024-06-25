@@ -23,4 +23,14 @@
      cy.log(`JWT_TOKEN: ${jwtToken ? jwtToken.substring(0, 4) + '****' : 'undefined'}`);
    });
  });
+
+
+
+ describe('first', () => { 
+   it('test reader', () => {
+      cy.readFile('cypress/fixtures/env.json').then((data) => {
+         cy.log('Environment variables written to env.json');
+       });
+   });
+  })
  
