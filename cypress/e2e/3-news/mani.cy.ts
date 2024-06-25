@@ -6,9 +6,10 @@
 
      const cypressJwtToken = Cypress.env('CYPRESS_JWT_TOKEN');
      const jwtToken = Cypress.env('JWT_TOKEN');
+     const jt2 = jwtToken
      expect(cypressJwtToken).to.be.a('string');
      expect(jwtToken).to.be.a('string')
-     expect(cypressJwtToken).to.equal(jwtToken);
+     expect(jwtToken).to.equal(jt2);
      cy.log(`CYPRESS_JWT_TOKEN: ${cypressJwtToken ? cypressJwtToken.substring(0, 4) + '****' : 'undefined'}`);
      cy.log(`JWT_TOKEN: ${jwtToken ? jwtToken.substring(0, 4) + '****' : 'undefined'}`);
    });
