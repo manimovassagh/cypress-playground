@@ -10,7 +10,6 @@ export class Dashboard {
 
 
 
-  
 
 
    locaters: WebLocaters = {
