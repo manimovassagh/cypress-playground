@@ -1,14 +1,18 @@
-name: Cypress Tests
 
+name: Summary titles
 on: [push, pull_request,workflow_dispatch]
-
 jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-
+  tests:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name:
-        run: ls
+      - uses: actions/checkout@v4
+      - name: Cypress headless tests
+        uses: cypress-io/github-action@v6
+        with:
+          summary-title: 'Headless'
+      - name: Cypress headed tests
+        uses: cypress-io/github-action@v6
+        with:
+          install: false
+          headed: true
+          summary-title: 'Headed'
