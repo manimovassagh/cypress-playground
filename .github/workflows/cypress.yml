@@ -6,13 +6,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: Cypress headless tests
+      - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           summary-title: 'Headless'
-      - name: Cypress headed tests
-        uses: cypress-io/github-action@v6
-        with:
-          install: false
-          headed: true
-          summary-title: 'Headed'
+          config-file: 'cypress.config.ts'
