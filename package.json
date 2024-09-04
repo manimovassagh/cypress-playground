@@ -4,7 +4,8 @@
   "description": "Cypress boilerplate playground",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "runner": "npx cypress run"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "typescript": "^5.4.4"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "mochawesome": "^7.1.3"
   }
 }
